@@ -3,6 +3,10 @@
 
 from abc import ABC, abstractmethod
 
+class JSONIfy(ABC):
+    @abstractmethod
+    def toJSON(self):
+        pass
 
 class GraphicShape(ABC):
     def __init__(self):
@@ -13,7 +17,10 @@ class GraphicShape(ABC):
         pass
 
 
-class Circle(GraphicShape):
+class Circle(GraphicShape,JSONIfy):
+    def toJSON(self):
+        return f"{{\"square\": {str(self.calcArea())} }}"
+
     def __init__(self, radius):
         self.radius = radius
 
@@ -23,3 +30,4 @@ class Circle(GraphicShape):
 
 c = Circle(10)
 print(c.calcArea())
+print(c.toJSON())

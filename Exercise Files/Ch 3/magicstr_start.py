@@ -9,7 +9,11 @@ class Book:
         self.author = author
         self.price = price
 
+    def __str__(self) ->str:
+        return f"{self.title} {self.author} {self.price}"
+
     # TODO: use the __str__ method to return a string
+
 
     # TODO: use the __repr__ method to return an obj representation
 
@@ -17,5 +21,5 @@ class Book:
 b1 = Book("War and Peace", "Leo Tolstoy", 39.95)
 b2 = Book("The Catcher in the Rye", "JD Salinger", 29.95)
 
-print(b1)
-print(b2)
+print(str(b1))
+print(repr(b2))
